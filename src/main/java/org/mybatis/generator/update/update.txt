@@ -1,0 +1,7 @@
+1、更新 SerializablePlugin插件变量serialVersionUID的位置 topLevelClass.addField(0,field);
+2、增加了数据库的返回注释，去掉了不必要的一些注释
+3、注释所有的接口方法
+4、为ibatis2增加了个 给dao增加注解的插件
+5、增加公共查询条件类 ibatis 和mybatis
+6、增加了service的生成插件
+7、增加pojo类注释-》table的注释

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yixiang.erp.manage.SeatsModifyMapper" >
+  <resultMap id="BaseResultMap" type="com.yixiang.erp.manage.SeatsModify" >
+    <id column="seatsModify_id" property="id" jdbcType="BIGINT" />
+    <result column="seatsModify_order_number" property="orderNumber" jdbcType="VARCHAR" />
+    <result column="seatsModify_pss_order_number" property="pssOrderNumber" jdbcType="VARCHAR" />
+    <result column="seatsModify_price_unit" property="priceUnit" jdbcType="DOUBLE" />
+    <result column="seatsModify_remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="seatsModify_modify_seat" property="modifySeat" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.orderNumber != null" >
+         and order_number = #{condition.orderNumber,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.pssOrderNumber != null" >
+         and pss_order_number = #{condition.pssOrderNumber,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.priceUnit != null" >
+         and price_unit = #{condition.priceUnit,jdbcType=DOUBLE}
+      </if>
+      <if test="condition.remarks != null" >
+         and remarks = #{condition.remarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.modifySeat != null" >
+         and modify_seat = #{condition.modifySeat,jdbcType=TINYINT}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.orderNumber != null" >
+         and order_number = #{example.condition.orderNumber,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.pssOrderNumber != null" >
+         and pss_order_number = #{example.condition.pssOrderNumber,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.priceUnit != null" >
+         and price_unit = #{example.condition.priceUnit,jdbcType=DOUBLE}
+      </if>
+      <if test="example.condition.remarks != null" >
+         and remarks = #{example.condition.remarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.modifySeat != null" >
+         and modify_seat = #{example.condition.modifySeat,jdbcType=TINYINT}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    seatsModify.id as seatsModify_id, seatsModify.order_number as seatsModify_order_number, 
+    seatsModify.pss_order_number as seatsModify_pss_order_number, seatsModify.price_unit as seatsModify_price_unit, 
+    seatsModify.remarks as seatsModify_remarks, seatsModify.modify_seat as seatsModify_modify_seat
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yixiang.erp.manage.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pltm_seats_modify seatsModify
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from pltm_seats_modify seatsModify
+    where seatsModify.id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from pltm_seats_modify
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yixiang.erp.manage.Criteria" >
+    delete from pltm_seats_modify seatsModify
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yixiang.erp.manage.SeatsModify" >
+    insert into pltm_seats_modify (id, order_number, pss_order_number, 
+      price_unit, remarks, modify_seat
+      )
+    values (#{id,jdbcType=BIGINT}, #{orderNumber,jdbcType=VARCHAR}, #{pssOrderNumber,jdbcType=VARCHAR}, 
+      #{priceUnit,jdbcType=DOUBLE}, #{remarks,jdbcType=VARCHAR}, #{modifySeat,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yixiang.erp.manage.SeatsModify" >
+    insert into pltm_seats_modify
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orderNumber != null" >
+        order_number,
+      </if>
+      <if test="pssOrderNumber != null" >
+        pss_order_number,
+      </if>
+      <if test="priceUnit != null" >
+        price_unit,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="modifySeat != null" >
+        modify_seat,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="orderNumber != null" >
+        #{orderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="pssOrderNumber != null" >
+        #{pssOrderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="priceUnit != null" >
+        #{priceUnit,jdbcType=DOUBLE},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="modifySeat != null" >
+        #{modifySeat,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yixiang.erp.manage.Criteria" resultType="java.lang.Integer" >
+    select count(*) from pltm_seats_modify seatsModify
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update pltm_seats_modify seatsModify
+    <set >
+      <if test="record.id != null" >
+        seatsModify.id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.orderNumber != null" >
+        seatsModify.order_number = #{record.orderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pssOrderNumber != null" >
+        seatsModify.pss_order_number = #{record.pssOrderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.priceUnit != null" >
+        seatsModify.price_unit = #{record.priceUnit,jdbcType=DOUBLE},
+      </if>
+      <if test="record.remarks != null" >
+        seatsModify.remarks = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifySeat != null" >
+        seatsModify.modify_seat = #{record.modifySeat,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update pltm_seats_modify seatsModify
+    set seatsModify.id = #{record.id,jdbcType=BIGINT},
+      seatsModify.order_number = #{record.orderNumber,jdbcType=VARCHAR},
+      seatsModify.pss_order_number = #{record.pssOrderNumber,jdbcType=VARCHAR},
+      seatsModify.price_unit = #{record.priceUnit,jdbcType=DOUBLE},
+      seatsModify.remarks = #{record.remarks,jdbcType=VARCHAR},
+      seatsModify.modify_seat = #{record.modifySeat,jdbcType=TINYINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yixiang.erp.manage.SeatsModify" >
+    update pltm_seats_modify
+    <set >
+      <if test="orderNumber != null" >
+        order_number = #{orderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="pssOrderNumber != null" >
+        pss_order_number = #{pssOrderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="priceUnit != null" >
+        price_unit = #{priceUnit,jdbcType=DOUBLE},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="modifySeat != null" >
+        modify_seat = #{modifySeat,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yixiang.erp.manage.SeatsModify" >
+    update pltm_seats_modify
+    set order_number = #{orderNumber,jdbcType=VARCHAR},
+      pss_order_number = #{pssOrderNumber,jdbcType=VARCHAR},
+      price_unit = #{priceUnit,jdbcType=DOUBLE},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      modify_seat = #{modifySeat,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

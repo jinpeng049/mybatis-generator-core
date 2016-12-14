@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixiang.erp.manage.PltmTradeDetailMapper">
+  <resultMap id="BaseResultMap" type="com.yixiang.erp.manage.PltmTradeDetail">
+    <id column="pltmTradeDetail_id" jdbcType="BIGINT" property="id" />
+    <result column="pltmTradeDetail_payer_id" jdbcType="INTEGER" property="payerId" />
+    <result column="pltmTradeDetail_payer_name" jdbcType="VARCHAR" property="payerName" />
+    <result column="pltmTradeDetail_receiver_id" jdbcType="INTEGER" property="receiverId" />
+    <result column="pltmTradeDetail_receiver_name" jdbcType="VARCHAR" property="receiverName" />
+    <result column="pltmTradeDetail_money" jdbcType="REAL" property="money" />
+    <result column="pltmTradeDetail_operate_user" jdbcType="VARCHAR" property="operateUser" />
+    <result column="pltmTradeDetail_operate_time" jdbcType="TIMESTAMP" property="operateTime" />
+    <result column="pltmTradeDetail_bus_type" jdbcType="TINYINT" property="busType" />
+    <result column="pltmTradeDetail_pay_type" jdbcType="TINYINT" property="payType" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.payerId != null">
+         and payer_id = #{condition.payerId,jdbcType=INTEGER}
+      </if>
+      <if test="condition.payerName != null">
+         and payer_name = #{condition.payerName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.receiverId != null">
+         and receiver_id = #{condition.receiverId,jdbcType=INTEGER}
+      </if>
+      <if test="condition.receiverName != null">
+         and receiver_name = #{condition.receiverName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.money != null">
+         and money = #{condition.money,jdbcType=REAL}
+      </if>
+      <if test="condition.operateUser != null">
+         and operate_user = #{condition.operateUser,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.operateTime != null">
+         and operate_time = #{condition.operateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.busType != null">
+         and bus_type = #{condition.busType,jdbcType=TINYINT}
+      </if>
+      <if test="condition.payType != null">
+         and pay_type = #{condition.payType,jdbcType=TINYINT}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.payerId != null">
+         and payer_id = #{example.condition.payerId,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.payerName != null">
+         and payer_name = #{example.condition.payerName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.receiverId != null">
+         and receiver_id = #{example.condition.receiverId,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.receiverName != null">
+         and receiver_name = #{example.condition.receiverName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.money != null">
+         and money = #{example.condition.money,jdbcType=REAL}
+      </if>
+      <if test="example.condition.operateUser != null">
+         and operate_user = #{example.condition.operateUser,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.operateTime != null">
+         and operate_time = #{example.condition.operateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.busType != null">
+         and bus_type = #{example.condition.busType,jdbcType=TINYINT}
+      </if>
+      <if test="example.condition.payType != null">
+         and pay_type = #{example.condition.payType,jdbcType=TINYINT}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    pltmTradeDetail.id as pltmTradeDetail_id, pltmTradeDetail.payer_id as pltmTradeDetail_payer_id, 
+    pltmTradeDetail.payer_name as pltmTradeDetail_payer_name, pltmTradeDetail.receiver_id as pltmTradeDetail_receiver_id, 
+    pltmTradeDetail.receiver_name as pltmTradeDetail_receiver_name, pltmTradeDetail.money as pltmTradeDetail_money, 
+    pltmTradeDetail.operate_user as pltmTradeDetail_operate_user, pltmTradeDetail.operate_time as pltmTradeDetail_operate_time, 
+    pltmTradeDetail.bus_type as pltmTradeDetail_bus_type, pltmTradeDetail.pay_type as pltmTradeDetail_pay_type
+  </sql>
+  <select id="selectByExample" parameterType="com.yixiang.erp.manage.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pltm_trade_detail pltmTradeDetail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pltm_trade_detail pltmTradeDetail
+    where pltmTradeDetail.id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from pltm_trade_detail
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yixiang.erp.manage.Criteria">
+    delete from pltm_trade_detail pltmTradeDetail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yixiang.erp.manage.PltmTradeDetail">
+    insert into pltm_trade_detail (id, payer_id, payer_name, 
+      receiver_id, receiver_name, money, 
+      operate_user, operate_time, bus_type, 
+      pay_type)
+    values (#{id,jdbcType=BIGINT}, #{payerId,jdbcType=INTEGER}, #{payerName,jdbcType=VARCHAR}, 
+      #{receiverId,jdbcType=INTEGER}, #{receiverName,jdbcType=VARCHAR}, #{money,jdbcType=REAL}, 
+      #{operateUser,jdbcType=VARCHAR}, #{operateTime,jdbcType=TIMESTAMP}, #{busType,jdbcType=TINYINT}, 
+      #{payType,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yixiang.erp.manage.PltmTradeDetail">
+    insert into pltm_trade_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="payerId != null">
+        payer_id,
+      </if>
+      <if test="payerName != null">
+        payer_name,
+      </if>
+      <if test="receiverId != null">
+        receiver_id,
+      </if>
+      <if test="receiverName != null">
+        receiver_name,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="operateUser != null">
+        operate_user,
+      </if>
+      <if test="operateTime != null">
+        operate_time,
+      </if>
+      <if test="busType != null">
+        bus_type,
+      </if>
+      <if test="payType != null">
+        pay_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="payerId != null">
+        #{payerId,jdbcType=INTEGER},
+      </if>
+      <if test="payerName != null">
+        #{payerName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverId != null">
+        #{receiverId,jdbcType=INTEGER},
+      </if>
+      <if test="receiverName != null">
+        #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=REAL},
+      </if>
+      <if test="operateUser != null">
+        #{operateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="operateTime != null">
+        #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="busType != null">
+        #{busType,jdbcType=TINYINT},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yixiang.erp.manage.Criteria" resultType="java.lang.Integer">
+    select count(*) from pltm_trade_detail pltmTradeDetail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update pltm_trade_detail pltmTradeDetail
+    <set>
+      <if test="record.id != null">
+        pltmTradeDetail.id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.payerId != null">
+        pltmTradeDetail.payer_id = #{record.payerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.payerName != null">
+        pltmTradeDetail.payer_name = #{record.payerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiverId != null">
+        pltmTradeDetail.receiver_id = #{record.receiverId,jdbcType=INTEGER},
+      </if>
+      <if test="record.receiverName != null">
+        pltmTradeDetail.receiver_name = #{record.receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.money != null">
+        pltmTradeDetail.money = #{record.money,jdbcType=REAL},
+      </if>
+      <if test="record.operateUser != null">
+        pltmTradeDetail.operate_user = #{record.operateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operateTime != null">
+        pltmTradeDetail.operate_time = #{record.operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.busType != null">
+        pltmTradeDetail.bus_type = #{record.busType,jdbcType=TINYINT},
+      </if>
+      <if test="record.payType != null">
+        pltmTradeDetail.pay_type = #{record.payType,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update pltm_trade_detail pltmTradeDetail
+    set pltmTradeDetail.id = #{record.id,jdbcType=BIGINT},
+      pltmTradeDetail.payer_id = #{record.payerId,jdbcType=INTEGER},
+      pltmTradeDetail.payer_name = #{record.payerName,jdbcType=VARCHAR},
+      pltmTradeDetail.receiver_id = #{record.receiverId,jdbcType=INTEGER},
+      pltmTradeDetail.receiver_name = #{record.receiverName,jdbcType=VARCHAR},
+      pltmTradeDetail.money = #{record.money,jdbcType=REAL},
+      pltmTradeDetail.operate_user = #{record.operateUser,jdbcType=VARCHAR},
+      pltmTradeDetail.operate_time = #{record.operateTime,jdbcType=TIMESTAMP},
+      pltmTradeDetail.bus_type = #{record.busType,jdbcType=TINYINT},
+      pltmTradeDetail.pay_type = #{record.payType,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yixiang.erp.manage.PltmTradeDetail">
+    update pltm_trade_detail
+    <set>
+      <if test="payerId != null">
+        payer_id = #{payerId,jdbcType=INTEGER},
+      </if>
+      <if test="payerName != null">
+        payer_name = #{payerName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverId != null">
+        receiver_id = #{receiverId,jdbcType=INTEGER},
+      </if>
+      <if test="receiverName != null">
+        receiver_name = #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=REAL},
+      </if>
+      <if test="operateUser != null">
+        operate_user = #{operateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="operateTime != null">
+        operate_time = #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="busType != null">
+        bus_type = #{busType,jdbcType=TINYINT},
+      </if>
+      <if test="payType != null">
+        pay_type = #{payType,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yixiang.erp.manage.PltmTradeDetail">
+    update pltm_trade_detail
+    set payer_id = #{payerId,jdbcType=INTEGER},
+      payer_name = #{payerName,jdbcType=VARCHAR},
+      receiver_id = #{receiverId,jdbcType=INTEGER},
+      receiver_name = #{receiverName,jdbcType=VARCHAR},
+      money = #{money,jdbcType=REAL},
+      operate_user = #{operateUser,jdbcType=VARCHAR},
+      operate_time = #{operateTime,jdbcType=TIMESTAMP},
+      bus_type = #{busType,jdbcType=TINYINT},
+      pay_type = #{payType,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yixiang.erp.manage.PltmTradeDetail">
+    <id column="pltmTradeDetail_id" jdbcType="BIGINT" property="id" />
+    <result column="pltmTradeDetail_payer_id" jdbcType="INTEGER" property="payerId" />
+    <result column="pltmTradeDetail_payer_name" jdbcType="VARCHAR" property="payerName" />
+    <result column="pltmTradeDetail_receiver_id" jdbcType="INTEGER" property="receiverId" />
+    <result column="pltmTradeDetail_receiver_name" jdbcType="VARCHAR" property="receiverName" />
+    <result column="pltmTradeDetail_money" jdbcType="REAL" property="money" />
+    <result column="pltmTradeDetail_operate_user" jdbcType="VARCHAR" property="operateUser" />
+    <result column="pltmTradeDetail_operate_time" jdbcType="TIMESTAMP" property="operateTime" />
+    <result column="pltmTradeDetail_bus_type" jdbcType="TINYINT" property="busType" />
+    <result column="pltmTradeDetail_pay_type" jdbcType="TINYINT" property="payType" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.payerId != null">
+         and payer_id = #{condition.payerId,jdbcType=INTEGER}
+      </if>
+      <if test="condition.payerName != null">
+         and payer_name = #{condition.payerName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.receiverId != null">
+         and receiver_id = #{condition.receiverId,jdbcType=INTEGER}
+      </if>
+      <if test="condition.receiverName != null">
+         and receiver_name = #{condition.receiverName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.money != null">
+         and money = #{condition.money,jdbcType=REAL}
+      </if>
+      <if test="condition.operateUser != null">
+         and operate_user = #{condition.operateUser,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.operateTime != null">
+         and operate_time = #{condition.operateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.busType != null">
+         and bus_type = #{condition.busType,jdbcType=TINYINT}
+      </if>
+      <if test="condition.payType != null">
+         and pay_type = #{condition.payType,jdbcType=TINYINT}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.payerId != null">
+         and payer_id = #{example.condition.payerId,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.payerName != null">
+         and payer_name = #{example.condition.payerName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.receiverId != null">
+         and receiver_id = #{example.condition.receiverId,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.receiverName != null">
+         and receiver_name = #{example.condition.receiverName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.money != null">
+         and money = #{example.condition.money,jdbcType=REAL}
+      </if>
+      <if test="example.condition.operateUser != null">
+         and operate_user = #{example.condition.operateUser,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.operateTime != null">
+         and operate_time = #{example.condition.operateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.busType != null">
+         and bus_type = #{example.condition.busType,jdbcType=TINYINT}
+      </if>
+      <if test="example.condition.payType != null">
+         and pay_type = #{example.condition.payType,jdbcType=TINYINT}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    pltmTradeDetail.id as pltmTradeDetail_id, pltmTradeDetail.payer_id as pltmTradeDetail_payer_id, 
+    pltmTradeDetail.payer_name as pltmTradeDetail_payer_name, pltmTradeDetail.receiver_id as pltmTradeDetail_receiver_id, 
+    pltmTradeDetail.receiver_name as pltmTradeDetail_receiver_name, pltmTradeDetail.money as pltmTradeDetail_money, 
+    pltmTradeDetail.operate_user as pltmTradeDetail_operate_user, pltmTradeDetail.operate_time as pltmTradeDetail_operate_time, 
+    pltmTradeDetail.bus_type as pltmTradeDetail_bus_type, pltmTradeDetail.pay_type as pltmTradeDetail_pay_type
+  </sql>
+  <select id="selectByExample" parameterType="com.yixiang.erp.manage.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pltm_trade_detail pltmTradeDetail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pltm_trade_detail pltmTradeDetail
+    where pltmTradeDetail.id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from pltm_trade_detail
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yixiang.erp.manage.Criteria">
+    delete from pltm_trade_detail pltmTradeDetail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yixiang.erp.manage.PltmTradeDetail">
+    insert into pltm_trade_detail (id, payer_id, payer_name, 
+      receiver_id, receiver_name, money, 
+      operate_user, operate_time, bus_type, 
+      pay_type)
+    values (#{id,jdbcType=BIGINT}, #{payerId,jdbcType=INTEGER}, #{payerName,jdbcType=VARCHAR}, 
+      #{receiverId,jdbcType=INTEGER}, #{receiverName,jdbcType=VARCHAR}, #{money,jdbcType=REAL}, 
+      #{operateUser,jdbcType=VARCHAR}, #{operateTime,jdbcType=TIMESTAMP}, #{busType,jdbcType=TINYINT}, 
+      #{payType,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yixiang.erp.manage.PltmTradeDetail">
+    insert into pltm_trade_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="payerId != null">
+        payer_id,
+      </if>
+      <if test="payerName != null">
+        payer_name,
+      </if>
+      <if test="receiverId != null">
+        receiver_id,
+      </if>
+      <if test="receiverName != null">
+        receiver_name,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="operateUser != null">
+        operate_user,
+      </if>
+      <if test="operateTime != null">
+        operate_time,
+      </if>
+      <if test="busType != null">
+        bus_type,
+      </if>
+      <if test="payType != null">
+        pay_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="payerId != null">
+        #{payerId,jdbcType=INTEGER},
+      </if>
+      <if test="payerName != null">
+        #{payerName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverId != null">
+        #{receiverId,jdbcType=INTEGER},
+      </if>
+      <if test="receiverName != null">
+        #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=REAL},
+      </if>
+      <if test="operateUser != null">
+        #{operateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="operateTime != null">
+        #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="busType != null">
+        #{busType,jdbcType=TINYINT},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yixiang.erp.manage.Criteria" resultType="java.lang.Integer">
+    select count(*) from pltm_trade_detail pltmTradeDetail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update pltm_trade_detail pltmTradeDetail
+    <set>
+      <if test="record.id != null">
+        pltmTradeDetail.id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.payerId != null">
+        pltmTradeDetail.payer_id = #{record.payerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.payerName != null">
+        pltmTradeDetail.payer_name = #{record.payerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiverId != null">
+        pltmTradeDetail.receiver_id = #{record.receiverId,jdbcType=INTEGER},
+      </if>
+      <if test="record.receiverName != null">
+        pltmTradeDetail.receiver_name = #{record.receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.money != null">
+        pltmTradeDetail.money = #{record.money,jdbcType=REAL},
+      </if>
+      <if test="record.operateUser != null">
+        pltmTradeDetail.operate_user = #{record.operateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operateTime != null">
+        pltmTradeDetail.operate_time = #{record.operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.busType != null">
+        pltmTradeDetail.bus_type = #{record.busType,jdbcType=TINYINT},
+      </if>
+      <if test="record.payType != null">
+        pltmTradeDetail.pay_type = #{record.payType,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update pltm_trade_detail pltmTradeDetail
+    set pltmTradeDetail.id = #{record.id,jdbcType=BIGINT},
+      pltmTradeDetail.payer_id = #{record.payerId,jdbcType=INTEGER},
+      pltmTradeDetail.payer_name = #{record.payerName,jdbcType=VARCHAR},
+      pltmTradeDetail.receiver_id = #{record.receiverId,jdbcType=INTEGER},
+      pltmTradeDetail.receiver_name = #{record.receiverName,jdbcType=VARCHAR},
+      pltmTradeDetail.money = #{record.money,jdbcType=REAL},
+      pltmTradeDetail.operate_user = #{record.operateUser,jdbcType=VARCHAR},
+      pltmTradeDetail.operate_time = #{record.operateTime,jdbcType=TIMESTAMP},
+      pltmTradeDetail.bus_type = #{record.busType,jdbcType=TINYINT},
+      pltmTradeDetail.pay_type = #{record.payType,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yixiang.erp.manage.PltmTradeDetail">
+    update pltm_trade_detail
+    <set>
+      <if test="payerId != null">
+        payer_id = #{payerId,jdbcType=INTEGER},
+      </if>
+      <if test="payerName != null">
+        payer_name = #{payerName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverId != null">
+        receiver_id = #{receiverId,jdbcType=INTEGER},
+      </if>
+      <if test="receiverName != null">
+        receiver_name = #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=REAL},
+      </if>
+      <if test="operateUser != null">
+        operate_user = #{operateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="operateTime != null">
+        operate_time = #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="busType != null">
+        bus_type = #{busType,jdbcType=TINYINT},
+      </if>
+      <if test="payType != null">
+        pay_type = #{payType,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yixiang.erp.manage.PltmTradeDetail">
+    update pltm_trade_detail
+    set payer_id = #{payerId,jdbcType=INTEGER},
+      payer_name = #{payerName,jdbcType=VARCHAR},
+      receiver_id = #{receiverId,jdbcType=INTEGER},
+      receiver_name = #{receiverName,jdbcType=VARCHAR},
+      money = #{money,jdbcType=REAL},
+      operate_user = #{operateUser,jdbcType=VARCHAR},
+      operate_time = #{operateTime,jdbcType=TIMESTAMP},
+      bus_type = #{busType,jdbcType=TINYINT},
+      pay_type = #{payType,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

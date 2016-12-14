@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yixiang.erp.manage.PltmCashMapper" >
+  <resultMap id="BaseResultMap" type="com.yixiang.erp.manage.PltmCash" >
+    <id column="pltmCash_id" property="id" jdbcType="TINYINT" />
+    <result column="pltmCash_cash_no" property="cashNo" jdbcType="VARCHAR" />
+    <result column="pltmCash_cash_money" property="cashMoney" jdbcType="REAL" />
+    <result column="pltmCash_cash_time" property="cashTime" jdbcType="TIMESTAMP" />
+    <result column="pltmCash_account_bank" property="accountBank" jdbcType="VARCHAR" />
+    <result column="pltmCash_account_name" property="accountName" jdbcType="VARCHAR" />
+    <result column="pltmCash_account_card" property="accountCard" jdbcType="VARCHAR" />
+    <result column="pltmCash_cash_userid" property="cashUserid" jdbcType="INTEGER" />
+    <result column="pltmCash_audit_userid" property="auditUserid" jdbcType="INTEGER" />
+    <result column="pltmCash_audit_date" property="auditDate" jdbcType="TIMESTAMP" />
+    <result column="pltmCash_audit_remarks" property="auditRemarks" jdbcType="VARCHAR" />
+    <result column="pltmCash_status" property="status" jdbcType="INTEGER" />
+    <result column="pltmCash_create_userid" property="createUserid" jdbcType="INTEGER" />
+    <result column="pltmCash_create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="pltmCash_payment_type" property="paymentType" jdbcType="INTEGER" />
+    <result column="pltmCash_payment_bank" property="paymentBank" jdbcType="VARCHAR" />
+    <result column="pltmCash_payment_no" property="paymentNo" jdbcType="VARCHAR" />
+    <result column="pltmCash_payment_time" property="paymentTime" jdbcType="TIMESTAMP" />
+    <result column="pltmCash_payment_remarks" property="paymentRemarks" jdbcType="VARCHAR" />
+    <result column="pltmCash_last_update_userid" property="lastUpdateUserid" jdbcType="INTEGER" />
+    <result column="pltmCash_last_update_time" property="lastUpdateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.cashNo != null" >
+         and cash_no = #{condition.cashNo,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cashMoney != null" >
+         and cash_money = #{condition.cashMoney,jdbcType=REAL}
+      </if>
+      <if test="condition.cashTime != null" >
+         and cash_time = #{condition.cashTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.accountBank != null" >
+         and account_bank = #{condition.accountBank,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.accountName != null" >
+         and account_name = #{condition.accountName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.accountCard != null" >
+         and account_card = #{condition.accountCard,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cashUserid != null" >
+         and cash_userid = #{condition.cashUserid,jdbcType=INTEGER}
+      </if>
+      <if test="condition.auditUserid != null" >
+         and audit_userid = #{condition.auditUserid,jdbcType=INTEGER}
+      </if>
+      <if test="condition.auditDate != null" >
+         and audit_date = #{condition.auditDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.auditRemarks != null" >
+         and audit_remarks = #{condition.auditRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.status != null" >
+         and status = #{condition.status,jdbcType=INTEGER}
+      </if>
+      <if test="condition.createUserid != null" >
+         and create_userid = #{condition.createUserid,jdbcType=INTEGER}
+      </if>
+      <if test="condition.createTime != null" >
+         and create_time = #{condition.createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.paymentType != null" >
+         and payment_type = #{condition.paymentType,jdbcType=INTEGER}
+      </if>
+      <if test="condition.paymentBank != null" >
+         and payment_bank = #{condition.paymentBank,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paymentNo != null" >
+         and payment_no = #{condition.paymentNo,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paymentTime != null" >
+         and payment_time = #{condition.paymentTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.paymentRemarks != null" >
+         and payment_remarks = #{condition.paymentRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.lastUpdateUserid != null" >
+         and last_update_userid = #{condition.lastUpdateUserid,jdbcType=INTEGER}
+      </if>
+      <if test="condition.lastUpdateTime != null" >
+         and last_update_time = #{condition.lastUpdateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.cashNo != null" >
+         and cash_no = #{example.condition.cashNo,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.cashMoney != null" >
+         and cash_money = #{example.condition.cashMoney,jdbcType=REAL}
+      </if>
+      <if test="example.condition.cashTime != null" >
+         and cash_time = #{example.condition.cashTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.accountBank != null" >
+         and account_bank = #{example.condition.accountBank,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.accountName != null" >
+         and account_name = #{example.condition.accountName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.accountCard != null" >
+         and account_card = #{example.condition.accountCard,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.cashUserid != null" >
+         and cash_userid = #{example.condition.cashUserid,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.auditUserid != null" >
+         and audit_userid = #{example.condition.auditUserid,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.auditDate != null" >
+         and audit_date = #{example.condition.auditDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.auditRemarks != null" >
+         and audit_remarks = #{example.condition.auditRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.status != null" >
+         and status = #{example.condition.status,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.createUserid != null" >
+         and create_userid = #{example.condition.createUserid,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.createTime != null" >
+         and create_time = #{example.condition.createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.paymentType != null" >
+         and payment_type = #{example.condition.paymentType,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.paymentBank != null" >
+         and payment_bank = #{example.condition.paymentBank,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paymentNo != null" >
+         and payment_no = #{example.condition.paymentNo,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paymentTime != null" >
+         and payment_time = #{example.condition.paymentTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.paymentRemarks != null" >
+         and payment_remarks = #{example.condition.paymentRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.lastUpdateUserid != null" >
+         and last_update_userid = #{example.condition.lastUpdateUserid,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.lastUpdateTime != null" >
+         and last_update_time = #{example.condition.lastUpdateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    pltmCash.id as pltmCash_id, pltmCash.cash_no as pltmCash_cash_no, pltmCash.cash_money as pltmCash_cash_money, 
+    pltmCash.cash_time as pltmCash_cash_time, pltmCash.account_bank as pltmCash_account_bank, 
+    pltmCash.account_name as pltmCash_account_name, pltmCash.account_card as pltmCash_account_card, 
+    pltmCash.cash_userid as pltmCash_cash_userid, pltmCash.audit_userid as pltmCash_audit_userid, 
+    pltmCash.audit_date as pltmCash_audit_date, pltmCash.audit_remarks as pltmCash_audit_remarks, 
+    pltmCash.status as pltmCash_status, pltmCash.create_userid as pltmCash_create_userid, 
+    pltmCash.create_time as pltmCash_create_time, pltmCash.payment_type as pltmCash_payment_type, 
+    pltmCash.payment_bank as pltmCash_payment_bank, pltmCash.payment_no as pltmCash_payment_no, 
+    pltmCash.payment_time as pltmCash_payment_time, pltmCash.payment_remarks as pltmCash_payment_remarks, 
+    pltmCash.last_update_userid as pltmCash_last_update_userid, pltmCash.last_update_time as pltmCash_last_update_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yixiang.erp.manage.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pltm_cash pltmCash
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Byte" >
+    select 
+    <include refid="Base_Column_List" />
+    from pltm_cash pltmCash
+    where pltmCash.id = #{id,jdbcType=TINYINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Byte" >
+    delete from pltm_cash
+    where id = #{id,jdbcType=TINYINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yixiang.erp.manage.Criteria" >
+    delete from pltm_cash pltmCash
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yixiang.erp.manage.PltmCash" >
+    insert into pltm_cash (id, cash_no, cash_money, 
+      cash_time, account_bank, account_name, 
+      account_card, cash_userid, audit_userid, 
+      audit_date, audit_remarks, status, 
+      create_userid, create_time, payment_type, 
+      payment_bank, payment_no, payment_time, 
+      payment_remarks, last_update_userid, last_update_time
+      )
+    values (#{id,jdbcType=TINYINT}, #{cashNo,jdbcType=VARCHAR}, #{cashMoney,jdbcType=REAL}, 
+      #{cashTime,jdbcType=TIMESTAMP}, #{accountBank,jdbcType=VARCHAR}, #{accountName,jdbcType=VARCHAR}, 
+      #{accountCard,jdbcType=VARCHAR}, #{cashUserid,jdbcType=INTEGER}, #{auditUserid,jdbcType=INTEGER}, 
+      #{auditDate,jdbcType=TIMESTAMP}, #{auditRemarks,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{createUserid,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{paymentType,jdbcType=INTEGER}, 
+      #{paymentBank,jdbcType=VARCHAR}, #{paymentNo,jdbcType=VARCHAR}, #{paymentTime,jdbcType=TIMESTAMP}, 
+      #{paymentRemarks,jdbcType=VARCHAR}, #{lastUpdateUserid,jdbcType=INTEGER}, #{lastUpdateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yixiang.erp.manage.PltmCash" >
+    insert into pltm_cash
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cashNo != null" >
+        cash_no,
+      </if>
+      <if test="cashMoney != null" >
+        cash_money,
+      </if>
+      <if test="cashTime != null" >
+        cash_time,
+      </if>
+      <if test="accountBank != null" >
+        account_bank,
+      </if>
+      <if test="accountName != null" >
+        account_name,
+      </if>
+      <if test="accountCard != null" >
+        account_card,
+      </if>
+      <if test="cashUserid != null" >
+        cash_userid,
+      </if>
+      <if test="auditUserid != null" >
+        audit_userid,
+      </if>
+      <if test="auditDate != null" >
+        audit_date,
+      </if>
+      <if test="auditRemarks != null" >
+        audit_remarks,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createUserid != null" >
+        create_userid,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="paymentType != null" >
+        payment_type,
+      </if>
+      <if test="paymentBank != null" >
+        payment_bank,
+      </if>
+      <if test="paymentNo != null" >
+        payment_no,
+      </if>
+      <if test="paymentTime != null" >
+        payment_time,
+      </if>
+      <if test="paymentRemarks != null" >
+        payment_remarks,
+      </if>
+      <if test="lastUpdateUserid != null" >
+        last_update_userid,
+      </if>
+      <if test="lastUpdateTime != null" >
+        last_update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=TINYINT},
+      </if>
+      <if test="cashNo != null" >
+        #{cashNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cashMoney != null" >
+        #{cashMoney,jdbcType=REAL},
+      </if>
+      <if test="cashTime != null" >
+        #{cashTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accountBank != null" >
+        #{accountBank,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null" >
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountCard != null" >
+        #{accountCard,jdbcType=VARCHAR},
+      </if>
+      <if test="cashUserid != null" >
+        #{cashUserid,jdbcType=INTEGER},
+      </if>
+      <if test="auditUserid != null" >
+        #{auditUserid,jdbcType=INTEGER},
+      </if>
+      <if test="auditDate != null" >
+        #{auditDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditRemarks != null" >
+        #{auditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createUserid != null" >
+        #{createUserid,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymentType != null" >
+        #{paymentType,jdbcType=INTEGER},
+      </if>
+      <if test="paymentBank != null" >
+        #{paymentBank,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentNo != null" >
+        #{paymentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentTime != null" >
+        #{paymentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymentRemarks != null" >
+        #{paymentRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateUserid != null" >
+        #{lastUpdateUserid,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateTime != null" >
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yixiang.erp.manage.Criteria" resultType="java.lang.Integer" >
+    select count(*) from pltm_cash pltmCash
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update pltm_cash pltmCash
+    <set >
+      <if test="record.id != null" >
+        pltmCash.id = #{record.id,jdbcType=TINYINT},
+      </if>
+      <if test="record.cashNo != null" >
+        pltmCash.cash_no = #{record.cashNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cashMoney != null" >
+        pltmCash.cash_money = #{record.cashMoney,jdbcType=REAL},
+      </if>
+      <if test="record.cashTime != null" >
+        pltmCash.cash_time = #{record.cashTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.accountBank != null" >
+        pltmCash.account_bank = #{record.accountBank,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountName != null" >
+        pltmCash.account_name = #{record.accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountCard != null" >
+        pltmCash.account_card = #{record.accountCard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cashUserid != null" >
+        pltmCash.cash_userid = #{record.cashUserid,jdbcType=INTEGER},
+      </if>
+      <if test="record.auditUserid != null" >
+        pltmCash.audit_userid = #{record.auditUserid,jdbcType=INTEGER},
+      </if>
+      <if test="record.auditDate != null" >
+        pltmCash.audit_date = #{record.auditDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.auditRemarks != null" >
+        pltmCash.audit_remarks = #{record.auditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        pltmCash.status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.createUserid != null" >
+        pltmCash.create_userid = #{record.createUserid,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null" >
+        pltmCash.create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.paymentType != null" >
+        pltmCash.payment_type = #{record.paymentType,jdbcType=INTEGER},
+      </if>
+      <if test="record.paymentBank != null" >
+        pltmCash.payment_bank = #{record.paymentBank,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paymentNo != null" >
+        pltmCash.payment_no = #{record.paymentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paymentTime != null" >
+        pltmCash.payment_time = #{record.paymentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.paymentRemarks != null" >
+        pltmCash.payment_remarks = #{record.paymentRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lastUpdateUserid != null" >
+        pltmCash.last_update_userid = #{record.lastUpdateUserid,jdbcType=INTEGER},
+      </if>
+      <if test="record.lastUpdateTime != null" >
+        pltmCash.last_update_time = #{record.lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update pltm_cash pltmCash
+    set pltmCash.id = #{record.id,jdbcType=TINYINT},
+      pltmCash.cash_no = #{record.cashNo,jdbcType=VARCHAR},
+      pltmCash.cash_money = #{record.cashMoney,jdbcType=REAL},
+      pltmCash.cash_time = #{record.cashTime,jdbcType=TIMESTAMP},
+      pltmCash.account_bank = #{record.accountBank,jdbcType=VARCHAR},
+      pltmCash.account_name = #{record.accountName,jdbcType=VARCHAR},
+      pltmCash.account_card = #{record.accountCard,jdbcType=VARCHAR},
+      pltmCash.cash_userid = #{record.cashUserid,jdbcType=INTEGER},
+      pltmCash.audit_userid = #{record.auditUserid,jdbcType=INTEGER},
+      pltmCash.audit_date = #{record.auditDate,jdbcType=TIMESTAMP},
+      pltmCash.audit_remarks = #{record.auditRemarks,jdbcType=VARCHAR},
+      pltmCash.status = #{record.status,jdbcType=INTEGER},
+      pltmCash.create_userid = #{record.createUserid,jdbcType=INTEGER},
+      pltmCash.create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      pltmCash.payment_type = #{record.paymentType,jdbcType=INTEGER},
+      pltmCash.payment_bank = #{record.paymentBank,jdbcType=VARCHAR},
+      pltmCash.payment_no = #{record.paymentNo,jdbcType=VARCHAR},
+      pltmCash.payment_time = #{record.paymentTime,jdbcType=TIMESTAMP},
+      pltmCash.payment_remarks = #{record.paymentRemarks,jdbcType=VARCHAR},
+      pltmCash.last_update_userid = #{record.lastUpdateUserid,jdbcType=INTEGER},
+      pltmCash.last_update_time = #{record.lastUpdateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yixiang.erp.manage.PltmCash" >
+    update pltm_cash
+    <set >
+      <if test="cashNo != null" >
+        cash_no = #{cashNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cashMoney != null" >
+        cash_money = #{cashMoney,jdbcType=REAL},
+      </if>
+      <if test="cashTime != null" >
+        cash_time = #{cashTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accountBank != null" >
+        account_bank = #{accountBank,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null" >
+        account_name = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountCard != null" >
+        account_card = #{accountCard,jdbcType=VARCHAR},
+      </if>
+      <if test="cashUserid != null" >
+        cash_userid = #{cashUserid,jdbcType=INTEGER},
+      </if>
+      <if test="auditUserid != null" >
+        audit_userid = #{auditUserid,jdbcType=INTEGER},
+      </if>
+      <if test="auditDate != null" >
+        audit_date = #{auditDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditRemarks != null" >
+        audit_remarks = #{auditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createUserid != null" >
+        create_userid = #{createUserid,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymentType != null" >
+        payment_type = #{paymentType,jdbcType=INTEGER},
+      </if>
+      <if test="paymentBank != null" >
+        payment_bank = #{paymentBank,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentNo != null" >
+        payment_no = #{paymentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentTime != null" >
+        payment_time = #{paymentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymentRemarks != null" >
+        payment_remarks = #{paymentRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateUserid != null" >
+        last_update_userid = #{lastUpdateUserid,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateTime != null" >
+        last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=TINYINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yixiang.erp.manage.PltmCash" >
+    update pltm_cash
+    set cash_no = #{cashNo,jdbcType=VARCHAR},
+      cash_money = #{cashMoney,jdbcType=REAL},
+      cash_time = #{cashTime,jdbcType=TIMESTAMP},
+      account_bank = #{accountBank,jdbcType=VARCHAR},
+      account_name = #{accountName,jdbcType=VARCHAR},
+      account_card = #{accountCard,jdbcType=VARCHAR},
+      cash_userid = #{cashUserid,jdbcType=INTEGER},
+      audit_userid = #{auditUserid,jdbcType=INTEGER},
+      audit_date = #{auditDate,jdbcType=TIMESTAMP},
+      audit_remarks = #{auditRemarks,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      create_userid = #{createUserid,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      payment_type = #{paymentType,jdbcType=INTEGER},
+      payment_bank = #{paymentBank,jdbcType=VARCHAR},
+      payment_no = #{paymentNo,jdbcType=VARCHAR},
+      payment_time = #{paymentTime,jdbcType=TIMESTAMP},
+      payment_remarks = #{paymentRemarks,jdbcType=VARCHAR},
+      last_update_userid = #{lastUpdateUserid,jdbcType=INTEGER},
+      last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=TINYINT}
+  </update>
+</mapper>

@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yixiang.erp.manage.PltmNoticeMapper" >
+  <resultMap id="BaseResultMap" type="com.yixiang.erp.manage.PltmNotice" >
+    <id column="pltmNotice_id" property="id" jdbcType="BIGINT" />
+    <result column="pltmNotice_title" property="title" jdbcType="VARCHAR" />
+    <result column="pltmNotice_status" property="status" jdbcType="TINYINT" />
+    <result column="pltmNotice_priority" property="priority" jdbcType="TINYINT" />
+    <result column="pltmNotice_create_user" property="createUser" jdbcType="INTEGER" />
+    <result column="pltmNotice_create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="pltmNotice_last_modify_time" property="lastModifyTime" jdbcType="TIMESTAMP" />
+    <result column="pltmNotice_last_modify_person" property="lastModifyPerson" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.yixiang.erp.manage.PltmNotice" extends="BaseResultMap" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.title != null" >
+         and title = #{condition.title,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.status != null" >
+         and status = #{condition.status,jdbcType=TINYINT}
+      </if>
+      <if test="condition.priority != null" >
+         and priority = #{condition.priority,jdbcType=TINYINT}
+      </if>
+      <if test="condition.createUser != null" >
+         and create_user = #{condition.createUser,jdbcType=INTEGER}
+      </if>
+      <if test="condition.createTime != null" >
+         and create_time = #{condition.createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.lastModifyTime != null" >
+         and last_modify_time = #{condition.lastModifyTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.lastModifyPerson != null" >
+         and last_modify_person = #{condition.lastModifyPerson,jdbcType=INTEGER}
+      </if>
+      <if test="condition.content != null" >
+         and content = #{condition.content,jdbcType=LONGVARCHAR}
+      </if>
+    </trim>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.title != null" >
+         and title = #{example.condition.title,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.status != null" >
+         and status = #{example.condition.status,jdbcType=TINYINT}
+      </if>
+      <if test="example.condition.priority != null" >
+         and priority = #{example.condition.priority,jdbcType=TINYINT}
+      </if>
+      <if test="example.condition.createUser != null" >
+         and create_user = #{example.condition.createUser,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.createTime != null" >
+         and create_time = #{example.condition.createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.lastModifyTime != null" >
+         and last_modify_time = #{example.condition.lastModifyTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.lastModifyPerson != null" >
+         and last_modify_person = #{example.condition.lastModifyPerson,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.content != null" >
+         and content = #{example.condition.content,jdbcType=LONGVARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    pltmNotice.id as pltmNotice_id, pltmNotice.title as pltmNotice_title, pltmNotice.status as pltmNotice_status, 
+    pltmNotice.priority as pltmNotice_priority, pltmNotice.create_user as pltmNotice_create_user, 
+    pltmNotice.create_time as pltmNotice_create_time, pltmNotice.last_modify_time as pltmNotice_last_modify_time, 
+    pltmNotice.last_modify_person as pltmNotice_last_modify_person
+  </sql>
+  <sql id="Blob_Column_List" >
+    pltmNotice.content as pltmNotice_content
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.yixiang.erp.manage.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from pltm_notice pltmNotice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yixiang.erp.manage.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pltm_notice pltmNotice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from pltm_notice pltmNotice
+    where pltmNotice.id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from pltm_notice
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yixiang.erp.manage.Criteria" >
+    delete from pltm_notice pltmNotice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yixiang.erp.manage.PltmNotice" >
+    insert into pltm_notice (id, title, status, 
+      priority, create_user, create_time, 
+      last_modify_time, last_modify_person, content
+      )
+    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
+      #{priority,jdbcType=TINYINT}, #{createUser,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{lastModifyTime,jdbcType=TIMESTAMP}, #{lastModifyPerson,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yixiang.erp.manage.PltmNotice" >
+    insert into pltm_notice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="priority != null" >
+        priority,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="lastModifyTime != null" >
+        last_modify_time,
+      </if>
+      <if test="lastModifyPerson != null" >
+        last_modify_person,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="priority != null" >
+        #{priority,jdbcType=TINYINT},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyTime != null" >
+        #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyPerson != null" >
+        #{lastModifyPerson,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yixiang.erp.manage.Criteria" resultType="java.lang.Integer" >
+    select count(*) from pltm_notice pltmNotice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update pltm_notice pltmNotice
+    <set >
+      <if test="record.id != null" >
+        pltmNotice.id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.title != null" >
+        pltmNotice.title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        pltmNotice.status = #{record.status,jdbcType=TINYINT},
+      </if>
+      <if test="record.priority != null" >
+        pltmNotice.priority = #{record.priority,jdbcType=TINYINT},
+      </if>
+      <if test="record.createUser != null" >
+        pltmNotice.create_user = #{record.createUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null" >
+        pltmNotice.create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastModifyTime != null" >
+        pltmNotice.last_modify_time = #{record.lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastModifyPerson != null" >
+        pltmNotice.last_modify_person = #{record.lastModifyPerson,jdbcType=INTEGER},
+      </if>
+      <if test="record.content != null" >
+        pltmNotice.content = #{record.content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update pltm_notice pltmNotice
+    set pltmNotice.id = #{record.id,jdbcType=BIGINT},
+      pltmNotice.title = #{record.title,jdbcType=VARCHAR},
+      pltmNotice.status = #{record.status,jdbcType=TINYINT},
+      pltmNotice.priority = #{record.priority,jdbcType=TINYINT},
+      pltmNotice.create_user = #{record.createUser,jdbcType=INTEGER},
+      pltmNotice.create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      pltmNotice.last_modify_time = #{record.lastModifyTime,jdbcType=TIMESTAMP},
+      pltmNotice.last_modify_person = #{record.lastModifyPerson,jdbcType=INTEGER},
+      pltmNotice.content = #{record.content,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update pltm_notice pltmNotice
+    set pltmNotice.id = #{record.id,jdbcType=BIGINT},
+      pltmNotice.title = #{record.title,jdbcType=VARCHAR},
+      pltmNotice.status = #{record.status,jdbcType=TINYINT},
+      pltmNotice.priority = #{record.priority,jdbcType=TINYINT},
+      pltmNotice.create_user = #{record.createUser,jdbcType=INTEGER},
+      pltmNotice.create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      pltmNotice.last_modify_time = #{record.lastModifyTime,jdbcType=TIMESTAMP},
+      pltmNotice.last_modify_person = #{record.lastModifyPerson,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yixiang.erp.manage.PltmNotice" >
+    update pltm_notice
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="priority != null" >
+        priority = #{priority,jdbcType=TINYINT},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyTime != null" >
+        last_modify_time = #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyPerson != null" >
+        last_modify_person = #{lastModifyPerson,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yixiang.erp.manage.PltmNotice" >
+    update pltm_notice
+    set title = #{title,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      priority = #{priority,jdbcType=TINYINT},
+      create_user = #{createUser,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      last_modify_time = #{lastModifyTime,jdbcType=TIMESTAMP},
+      last_modify_person = #{lastModifyPerson,jdbcType=INTEGER},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yixiang.erp.manage.PltmNotice" >
+    update pltm_notice
+    set title = #{title,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      priority = #{priority,jdbcType=TINYINT},
+      create_user = #{createUser,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      last_modify_time = #{lastModifyTime,jdbcType=TIMESTAMP},
+      last_modify_person = #{lastModifyPerson,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

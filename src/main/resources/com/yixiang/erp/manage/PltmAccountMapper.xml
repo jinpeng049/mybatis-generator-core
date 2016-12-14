@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixiang.erp.manage.PltmAccountMapper">
+  <resultMap id="BaseResultMap" type="com.yixiang.erp.manage.PltmAccount">
+    <id column="pltmAccount_id" jdbcType="BIGINT" property="id" />
+    <result column="pltmAccount_type" jdbcType="TINYINT" property="type" />
+    <result column="pltmAccount_account_number" jdbcType="VARCHAR" property="accountNumber" />
+    <result column="pltmAccount_account_name" jdbcType="VARCHAR" property="accountName" />
+    <result column="pltmAccount_money" jdbcType="REAL" property="money" />
+    <result column="pltmAccount_receivable" jdbcType="REAL" property="receivable" />
+    <result column="pltmAccount_stay_present" jdbcType="REAL" property="stayPresent" />
+    <result column="pltmAccount_already_mentioned" jdbcType="REAL" property="alreadyMentioned" />
+    <result column="pltmAccount_organization_id" jdbcType="INTEGER" property="organizationId" />
+    <result column="pltmAccount_organization_name" jdbcType="VARCHAR" property="organizationName" />
+    <result column="pltmAccount_create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="pltmAccount_create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="pltmAccount_last_modify_time" jdbcType="TIMESTAMP" property="lastModifyTime" />
+    <result column="pltmAccount_last_modify_person" jdbcType="INTEGER" property="lastModifyPerson" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.type != null">
+         and type = #{condition.type,jdbcType=TINYINT}
+      </if>
+      <if test="condition.accountNumber != null">
+         and account_number = #{condition.accountNumber,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.accountName != null">
+         and account_name = #{condition.accountName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.money != null">
+         and money = #{condition.money,jdbcType=REAL}
+      </if>
+      <if test="condition.receivable != null">
+         and receivable = #{condition.receivable,jdbcType=REAL}
+      </if>
+      <if test="condition.stayPresent != null">
+         and stay_present = #{condition.stayPresent,jdbcType=REAL}
+      </if>
+      <if test="condition.alreadyMentioned != null">
+         and already_mentioned = #{condition.alreadyMentioned,jdbcType=REAL}
+      </if>
+      <if test="condition.organizationId != null">
+         and organization_id = #{condition.organizationId,jdbcType=INTEGER}
+      </if>
+      <if test="condition.organizationName != null">
+         and organization_name = #{condition.organizationName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.createUser != null">
+         and create_user = #{condition.createUser,jdbcType=INTEGER}
+      </if>
+      <if test="condition.createTime != null">
+         and create_time = #{condition.createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.lastModifyTime != null">
+         and last_modify_time = #{condition.lastModifyTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.lastModifyPerson != null">
+         and last_modify_person = #{condition.lastModifyPerson,jdbcType=INTEGER}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.type != null">
+         and type = #{example.condition.type,jdbcType=TINYINT}
+      </if>
+      <if test="example.condition.accountNumber != null">
+         and account_number = #{example.condition.accountNumber,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.accountName != null">
+         and account_name = #{example.condition.accountName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.money != null">
+         and money = #{example.condition.money,jdbcType=REAL}
+      </if>
+      <if test="example.condition.receivable != null">
+         and receivable = #{example.condition.receivable,jdbcType=REAL}
+      </if>
+      <if test="example.condition.stayPresent != null">
+         and stay_present = #{example.condition.stayPresent,jdbcType=REAL}
+      </if>
+      <if test="example.condition.alreadyMentioned != null">
+         and already_mentioned = #{example.condition.alreadyMentioned,jdbcType=REAL}
+      </if>
+      <if test="example.condition.organizationId != null">
+         and organization_id = #{example.condition.organizationId,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.organizationName != null">
+         and organization_name = #{example.condition.organizationName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.createUser != null">
+         and create_user = #{example.condition.createUser,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.createTime != null">
+         and create_time = #{example.condition.createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.lastModifyTime != null">
+         and last_modify_time = #{example.condition.lastModifyTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.lastModifyPerson != null">
+         and last_modify_person = #{example.condition.lastModifyPerson,jdbcType=INTEGER}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    pltmAccount.id as pltmAccount_id, pltmAccount.type as pltmAccount_type, pltmAccount.account_number as pltmAccount_account_number, 
+    pltmAccount.account_name as pltmAccount_account_name, pltmAccount.money as pltmAccount_money, 
+    pltmAccount.receivable as pltmAccount_receivable, pltmAccount.stay_present as pltmAccount_stay_present, 
+    pltmAccount.already_mentioned as pltmAccount_already_mentioned, pltmAccount.organization_id as pltmAccount_organization_id, 
+    pltmAccount.organization_name as pltmAccount_organization_name, pltmAccount.create_user as pltmAccount_create_user, 
+    pltmAccount.create_time as pltmAccount_create_time, pltmAccount.last_modify_time as pltmAccount_last_modify_time, 
+    pltmAccount.last_modify_person as pltmAccount_last_modify_person
+  </sql>
+  <select id="selectByExample" parameterType="com.yixiang.erp.manage.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pltm_account pltmAccount
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pltm_account pltmAccount
+    where pltmAccount.id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from pltm_account
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yixiang.erp.manage.Criteria">
+    delete from pltm_account pltmAccount
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yixiang.erp.manage.PltmAccount">
+    insert into pltm_account (id, type, account_number, 
+      account_name, money, receivable, 
+      stay_present, already_mentioned, organization_id, 
+      organization_name, create_user, create_time, 
+      last_modify_time, last_modify_person)
+    values (#{id,jdbcType=BIGINT}, #{type,jdbcType=TINYINT}, #{accountNumber,jdbcType=VARCHAR}, 
+      #{accountName,jdbcType=VARCHAR}, #{money,jdbcType=REAL}, #{receivable,jdbcType=REAL}, 
+      #{stayPresent,jdbcType=REAL}, #{alreadyMentioned,jdbcType=REAL}, #{organizationId,jdbcType=INTEGER}, 
+      #{organizationName,jdbcType=VARCHAR}, #{createUser,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{lastModifyTime,jdbcType=TIMESTAMP}, #{lastModifyPerson,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yixiang.erp.manage.PltmAccount">
+    insert into pltm_account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="accountNumber != null">
+        account_number,
+      </if>
+      <if test="accountName != null">
+        account_name,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="receivable != null">
+        receivable,
+      </if>
+      <if test="stayPresent != null">
+        stay_present,
+      </if>
+      <if test="alreadyMentioned != null">
+        already_mentioned,
+      </if>
+      <if test="organizationId != null">
+        organization_id,
+      </if>
+      <if test="organizationName != null">
+        organization_name,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="lastModifyTime != null">
+        last_modify_time,
+      </if>
+      <if test="lastModifyPerson != null">
+        last_modify_person,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="accountNumber != null">
+        #{accountNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null">
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=REAL},
+      </if>
+      <if test="receivable != null">
+        #{receivable,jdbcType=REAL},
+      </if>
+      <if test="stayPresent != null">
+        #{stayPresent,jdbcType=REAL},
+      </if>
+      <if test="alreadyMentioned != null">
+        #{alreadyMentioned,jdbcType=REAL},
+      </if>
+      <if test="organizationId != null">
+        #{organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="organizationName != null">
+        #{organizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyTime != null">
+        #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyPerson != null">
+        #{lastModifyPerson,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yixiang.erp.manage.Criteria" resultType="java.lang.Integer">
+    select count(*) from pltm_account pltmAccount
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update pltm_account pltmAccount
+    <set>
+      <if test="record.id != null">
+        pltmAccount.id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.type != null">
+        pltmAccount.type = #{record.type,jdbcType=TINYINT},
+      </if>
+      <if test="record.accountNumber != null">
+        pltmAccount.account_number = #{record.accountNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountName != null">
+        pltmAccount.account_name = #{record.accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.money != null">
+        pltmAccount.money = #{record.money,jdbcType=REAL},
+      </if>
+      <if test="record.receivable != null">
+        pltmAccount.receivable = #{record.receivable,jdbcType=REAL},
+      </if>
+      <if test="record.stayPresent != null">
+        pltmAccount.stay_present = #{record.stayPresent,jdbcType=REAL},
+      </if>
+      <if test="record.alreadyMentioned != null">
+        pltmAccount.already_mentioned = #{record.alreadyMentioned,jdbcType=REAL},
+      </if>
+      <if test="record.organizationId != null">
+        pltmAccount.organization_id = #{record.organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="record.organizationName != null">
+        pltmAccount.organization_name = #{record.organizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createUser != null">
+        pltmAccount.create_user = #{record.createUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        pltmAccount.create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastModifyTime != null">
+        pltmAccount.last_modify_time = #{record.lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastModifyPerson != null">
+        pltmAccount.last_modify_person = #{record.lastModifyPerson,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update pltm_account pltmAccount
+    set pltmAccount.id = #{record.id,jdbcType=BIGINT},
+      pltmAccount.type = #{record.type,jdbcType=TINYINT},
+      pltmAccount.account_number = #{record.accountNumber,jdbcType=VARCHAR},
+      pltmAccount.account_name = #{record.accountName,jdbcType=VARCHAR},
+      pltmAccount.money = #{record.money,jdbcType=REAL},
+      pltmAccount.receivable = #{record.receivable,jdbcType=REAL},
+      pltmAccount.stay_present = #{record.stayPresent,jdbcType=REAL},
+      pltmAccount.already_mentioned = #{record.alreadyMentioned,jdbcType=REAL},
+      pltmAccount.organization_id = #{record.organizationId,jdbcType=INTEGER},
+      pltmAccount.organization_name = #{record.organizationName,jdbcType=VARCHAR},
+      pltmAccount.create_user = #{record.createUser,jdbcType=INTEGER},
+      pltmAccount.create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      pltmAccount.last_modify_time = #{record.lastModifyTime,jdbcType=TIMESTAMP},
+      pltmAccount.last_modify_person = #{record.lastModifyPerson,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yixiang.erp.manage.PltmAccount">
+    update pltm_account
+    <set>
+      <if test="type != null">
+        type = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="accountNumber != null">
+        account_number = #{accountNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null">
+        account_name = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=REAL},
+      </if>
+      <if test="receivable != null">
+        receivable = #{receivable,jdbcType=REAL},
+      </if>
+      <if test="stayPresent != null">
+        stay_present = #{stayPresent,jdbcType=REAL},
+      </if>
+      <if test="alreadyMentioned != null">
+        already_mentioned = #{alreadyMentioned,jdbcType=REAL},
+      </if>
+      <if test="organizationId != null">
+        organization_id = #{organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="organizationName != null">
+        organization_name = #{organizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyTime != null">
+        last_modify_time = #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyPerson != null">
+        last_modify_person = #{lastModifyPerson,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yixiang.erp.manage.PltmAccount">
+    update pltm_account
+    set type = #{type,jdbcType=TINYINT},
+      account_number = #{accountNumber,jdbcType=VARCHAR},
+      account_name = #{accountName,jdbcType=VARCHAR},
+      money = #{money,jdbcType=REAL},
+      receivable = #{receivable,jdbcType=REAL},
+      stay_present = #{stayPresent,jdbcType=REAL},
+      already_mentioned = #{alreadyMentioned,jdbcType=REAL},
+      organization_id = #{organizationId,jdbcType=INTEGER},
+      organization_name = #{organizationName,jdbcType=VARCHAR},
+      create_user = #{createUser,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      last_modify_time = #{lastModifyTime,jdbcType=TIMESTAMP},
+      last_modify_person = #{lastModifyPerson,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yixiang.erp.manage.PltmAccount">
+    <id column="pltmAccount_id" jdbcType="BIGINT" property="id" />
+    <result column="pltmAccount_type" jdbcType="TINYINT" property="type" />
+    <result column="pltmAccount_account_number" jdbcType="VARCHAR" property="accountNumber" />
+    <result column="pltmAccount_account_name" jdbcType="VARCHAR" property="accountName" />
+    <result column="pltmAccount_money" jdbcType="REAL" property="money" />
+    <result column="pltmAccount_receivable" jdbcType="REAL" property="receivable" />
+    <result column="pltmAccount_stay_present" jdbcType="REAL" property="stayPresent" />
+    <result column="pltmAccount_already_mentioned" jdbcType="REAL" property="alreadyMentioned" />
+    <result column="pltmAccount_organization_id" jdbcType="INTEGER" property="organizationId" />
+    <result column="pltmAccount_organization_name" jdbcType="VARCHAR" property="organizationName" />
+    <result column="pltmAccount_create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="pltmAccount_create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="pltmAccount_last_modify_time" jdbcType="TIMESTAMP" property="lastModifyTime" />
+    <result column="pltmAccount_last_modify_person" jdbcType="INTEGER" property="lastModifyPerson" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.type != null">
+         and type = #{condition.type,jdbcType=TINYINT}
+      </if>
+      <if test="condition.accountNumber != null">
+         and account_number = #{condition.accountNumber,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.accountName != null">
+         and account_name = #{condition.accountName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.money != null">
+         and money = #{condition.money,jdbcType=REAL}
+      </if>
+      <if test="condition.receivable != null">
+         and receivable = #{condition.receivable,jdbcType=REAL}
+      </if>
+      <if test="condition.stayPresent != null">
+         and stay_present = #{condition.stayPresent,jdbcType=REAL}
+      </if>
+      <if test="condition.alreadyMentioned != null">
+         and already_mentioned = #{condition.alreadyMentioned,jdbcType=REAL}
+      </if>
+      <if test="condition.organizationId != null">
+         and organization_id = #{condition.organizationId,jdbcType=INTEGER}
+      </if>
+      <if test="condition.organizationName != null">
+         and organization_name = #{condition.organizationName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.createUser != null">
+         and create_user = #{condition.createUser,jdbcType=INTEGER}
+      </if>
+      <if test="condition.createTime != null">
+         and create_time = #{condition.createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.lastModifyTime != null">
+         and last_modify_time = #{condition.lastModifyTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.lastModifyPerson != null">
+         and last_modify_person = #{condition.lastModifyPerson,jdbcType=INTEGER}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.type != null">
+         and type = #{example.condition.type,jdbcType=TINYINT}
+      </if>
+      <if test="example.condition.accountNumber != null">
+         and account_number = #{example.condition.accountNumber,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.accountName != null">
+         and account_name = #{example.condition.accountName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.money != null">
+         and money = #{example.condition.money,jdbcType=REAL}
+      </if>
+      <if test="example.condition.receivable != null">
+         and receivable = #{example.condition.receivable,jdbcType=REAL}
+      </if>
+      <if test="example.condition.stayPresent != null">
+         and stay_present = #{example.condition.stayPresent,jdbcType=REAL}
+      </if>
+      <if test="example.condition.alreadyMentioned != null">
+         and already_mentioned = #{example.condition.alreadyMentioned,jdbcType=REAL}
+      </if>
+      <if test="example.condition.organizationId != null">
+         and organization_id = #{example.condition.organizationId,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.organizationName != null">
+         and organization_name = #{example.condition.organizationName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.createUser != null">
+         and create_user = #{example.condition.createUser,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.createTime != null">
+         and create_time = #{example.condition.createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.lastModifyTime != null">
+         and last_modify_time = #{example.condition.lastModifyTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.lastModifyPerson != null">
+         and last_modify_person = #{example.condition.lastModifyPerson,jdbcType=INTEGER}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    pltmAccount.id as pltmAccount_id, pltmAccount.type as pltmAccount_type, pltmAccount.account_number as pltmAccount_account_number, 
+    pltmAccount.account_name as pltmAccount_account_name, pltmAccount.money as pltmAccount_money, 
+    pltmAccount.receivable as pltmAccount_receivable, pltmAccount.stay_present as pltmAccount_stay_present, 
+    pltmAccount.already_mentioned as pltmAccount_already_mentioned, pltmAccount.organization_id as pltmAccount_organization_id, 
+    pltmAccount.organization_name as pltmAccount_organization_name, pltmAccount.create_user as pltmAccount_create_user, 
+    pltmAccount.create_time as pltmAccount_create_time, pltmAccount.last_modify_time as pltmAccount_last_modify_time, 
+    pltmAccount.last_modify_person as pltmAccount_last_modify_person
+  </sql>
+  <select id="selectByExample" parameterType="com.yixiang.erp.manage.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pltm_account pltmAccount
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pltm_account pltmAccount
+    where pltmAccount.id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from pltm_account
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yixiang.erp.manage.Criteria">
+    delete from pltm_account pltmAccount
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yixiang.erp.manage.PltmAccount">
+    insert into pltm_account (id, type, account_number, 
+      account_name, money, receivable, 
+      stay_present, already_mentioned, organization_id, 
+      organization_name, create_user, create_time, 
+      last_modify_time, last_modify_person)
+    values (#{id,jdbcType=BIGINT}, #{type,jdbcType=TINYINT}, #{accountNumber,jdbcType=VARCHAR}, 
+      #{accountName,jdbcType=VARCHAR}, #{money,jdbcType=REAL}, #{receivable,jdbcType=REAL}, 
+      #{stayPresent,jdbcType=REAL}, #{alreadyMentioned,jdbcType=REAL}, #{organizationId,jdbcType=INTEGER}, 
+      #{organizationName,jdbcType=VARCHAR}, #{createUser,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{lastModifyTime,jdbcType=TIMESTAMP}, #{lastModifyPerson,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yixiang.erp.manage.PltmAccount">
+    insert into pltm_account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="accountNumber != null">
+        account_number,
+      </if>
+      <if test="accountName != null">
+        account_name,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="receivable != null">
+        receivable,
+      </if>
+      <if test="stayPresent != null">
+        stay_present,
+      </if>
+      <if test="alreadyMentioned != null">
+        already_mentioned,
+      </if>
+      <if test="organizationId != null">
+        organization_id,
+      </if>
+      <if test="organizationName != null">
+        organization_name,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="lastModifyTime != null">
+        last_modify_time,
+      </if>
+      <if test="lastModifyPerson != null">
+        last_modify_person,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="accountNumber != null">
+        #{accountNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null">
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=REAL},
+      </if>
+      <if test="receivable != null">
+        #{receivable,jdbcType=REAL},
+      </if>
+      <if test="stayPresent != null">
+        #{stayPresent,jdbcType=REAL},
+      </if>
+      <if test="alreadyMentioned != null">
+        #{alreadyMentioned,jdbcType=REAL},
+      </if>
+      <if test="organizationId != null">
+        #{organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="organizationName != null">
+        #{organizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyTime != null">
+        #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyPerson != null">
+        #{lastModifyPerson,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yixiang.erp.manage.Criteria" resultType="java.lang.Integer">
+    select count(*) from pltm_account pltmAccount
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update pltm_account pltmAccount
+    <set>
+      <if test="record.id != null">
+        pltmAccount.id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.type != null">
+        pltmAccount.type = #{record.type,jdbcType=TINYINT},
+      </if>
+      <if test="record.accountNumber != null">
+        pltmAccount.account_number = #{record.accountNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountName != null">
+        pltmAccount.account_name = #{record.accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.money != null">
+        pltmAccount.money = #{record.money,jdbcType=REAL},
+      </if>
+      <if test="record.receivable != null">
+        pltmAccount.receivable = #{record.receivable,jdbcType=REAL},
+      </if>
+      <if test="record.stayPresent != null">
+        pltmAccount.stay_present = #{record.stayPresent,jdbcType=REAL},
+      </if>
+      <if test="record.alreadyMentioned != null">
+        pltmAccount.already_mentioned = #{record.alreadyMentioned,jdbcType=REAL},
+      </if>
+      <if test="record.organizationId != null">
+        pltmAccount.organization_id = #{record.organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="record.organizationName != null">
+        pltmAccount.organization_name = #{record.organizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createUser != null">
+        pltmAccount.create_user = #{record.createUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        pltmAccount.create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastModifyTime != null">
+        pltmAccount.last_modify_time = #{record.lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastModifyPerson != null">
+        pltmAccount.last_modify_person = #{record.lastModifyPerson,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update pltm_account pltmAccount
+    set pltmAccount.id = #{record.id,jdbcType=BIGINT},
+      pltmAccount.type = #{record.type,jdbcType=TINYINT},
+      pltmAccount.account_number = #{record.accountNumber,jdbcType=VARCHAR},
+      pltmAccount.account_name = #{record.accountName,jdbcType=VARCHAR},
+      pltmAccount.money = #{record.money,jdbcType=REAL},
+      pltmAccount.receivable = #{record.receivable,jdbcType=REAL},
+      pltmAccount.stay_present = #{record.stayPresent,jdbcType=REAL},
+      pltmAccount.already_mentioned = #{record.alreadyMentioned,jdbcType=REAL},
+      pltmAccount.organization_id = #{record.organizationId,jdbcType=INTEGER},
+      pltmAccount.organization_name = #{record.organizationName,jdbcType=VARCHAR},
+      pltmAccount.create_user = #{record.createUser,jdbcType=INTEGER},
+      pltmAccount.create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      pltmAccount.last_modify_time = #{record.lastModifyTime,jdbcType=TIMESTAMP},
+      pltmAccount.last_modify_person = #{record.lastModifyPerson,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yixiang.erp.manage.PltmAccount">
+    update pltm_account
+    <set>
+      <if test="type != null">
+        type = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="accountNumber != null">
+        account_number = #{accountNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null">
+        account_name = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=REAL},
+      </if>
+      <if test="receivable != null">
+        receivable = #{receivable,jdbcType=REAL},
+      </if>
+      <if test="stayPresent != null">
+        stay_present = #{stayPresent,jdbcType=REAL},
+      </if>
+      <if test="alreadyMentioned != null">
+        already_mentioned = #{alreadyMentioned,jdbcType=REAL},
+      </if>
+      <if test="organizationId != null">
+        organization_id = #{organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="organizationName != null">
+        organization_name = #{organizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyTime != null">
+        last_modify_time = #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyPerson != null">
+        last_modify_person = #{lastModifyPerson,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yixiang.erp.manage.PltmAccount">
+    update pltm_account
+    set type = #{type,jdbcType=TINYINT},
+      account_number = #{accountNumber,jdbcType=VARCHAR},
+      account_name = #{accountName,jdbcType=VARCHAR},
+      money = #{money,jdbcType=REAL},
+      receivable = #{receivable,jdbcType=REAL},
+      stay_present = #{stayPresent,jdbcType=REAL},
+      already_mentioned = #{alreadyMentioned,jdbcType=REAL},
+      organization_id = #{organizationId,jdbcType=INTEGER},
+      organization_name = #{organizationName,jdbcType=VARCHAR},
+      create_user = #{createUser,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      last_modify_time = #{lastModifyTime,jdbcType=TIMESTAMP},
+      last_modify_person = #{lastModifyPerson,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

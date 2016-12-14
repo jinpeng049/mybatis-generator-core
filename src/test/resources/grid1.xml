@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry
+		location="D:\work\java\maven\repo\mysql\mysql-connector-java\5.1.39\mysql-connector-java-5.1.39.jar" />
+
+	<context id="MyBatis3" targetRuntime="MyBatis3">
+
+		<!-- 生成目录 -->
+		<!-- /opt/work/java/workspace/mybatis-generator-core -->
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.MybatisCriteriaPlugin" />
+		<plugin type="org.mybatis.generator.plugins.MybatisServicePlugin">
+			<property name="targetPackage" value="com.bw30.zsch.db.dbservice" />
+			<property name="implementationPackage" value="com.yixiang.erp.manage" />
+			<property name="targetProject" value="/opt/work/java/workspace/mybatis-generator-core/src/main/java" />
+			<property name="enableInsert" value="true" />
+			<property name="enableUpdateByExampleSelective" value="true" />
+			<property name="enableInsertSelective" value="true" />
+			<property name="enableUpdateByPrimaryKey" value="true" />
+			<property name="enableDeleteByPrimaryKey" value="true" />
+			<property name="enableDeleteByExample" value="true" />
+			<property name="enableUpdateByPrimaryKeySelective" value="true" />
+			<property name="enableUpdateByExample" value="true" />
+		</plugin>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.1.252:3306/yx_platform_test?useSSL=false" userId="erpuser"
+			password="erp**123" />
+
+		<!-- pojo model -->
+		<javaModelGenerator targetPackage="com.yixiang.erp.manage"
+			targetProject="D:\work\java\idea\workspace 2016\mybatis-generator-core\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.yixiang.erp.manage"
+			targetProject="D:\work\java\idea\workspace 2016\mybatis-generator-core\src\main\resources"> <!-- /dao -->
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- XMLMAPPER SPRING -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.yixiang.erp.manage" targetProject="D:\work\java\idea\workspace 2016\mybatis-generator-core\src\main\java"> <!-- /dao -->
+		</javaClientGenerator>
+		<!-- 原始 -->
+		<!-- <javaModelGenerator targetPackage="com.matychen.grids.pojo" targetProject="../mybatis-generator-testor/src/main/java"> -->
+		<!-- <property name="enableSubPackages" value="true" /> -->
+		<!-- </javaModelGenerator> -->
+
+		<!-- <sqlMapGenerator targetPackage="com.matychen.grids.sqlmap" targetProject="../mybatis-generator-testor/src/main/resources"> -->
+		<!-- <property name="enableSubPackages" value="true" /> -->
+		<!-- </sqlMapGenerator> -->
+
+		<!-- XMLMAPPER SPRING -->
+		<!-- <javaClientGenerator type="XMLMAPPER" targetPackage="com.matychen.grids.dao"
+			targetProject="../mybatis-generator-testor/src/main/java"> -->
+		<!-- </javaClientGenerator> -->
+
+
+
+
+
+
+<!-- 		<table tableName="BW30UNACCESS" -->
+<!-- 			domainObjectName="Bw30Unaccess" -->
+<!-- 			alias="unAccess" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="bw30city" -->
+<!-- 			domainObjectName="Bw30City" -->
+<!-- 			alias="bw30City" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="bw30commonpassenger" -->
+<!-- 			domainObjectName="Bw30CommonPassenger" -->
+<!-- 			alias="bw30CommonPassenger" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="bw30orderinvoiceaddress" -->
+<!-- 			domainObjectName="Bw30OrderInvoiceAddress" -->
+<!-- 			alias="bw30OrderInvoiceAddress" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="bw30orderpassengerchange" -->
+<!-- 			domainObjectName="Bw30OrderPassengerChange" -->
+<!-- 			alias="bw30OrderPassengerChange" > -->
+<!-- 		</table> -->
+        <!--<table tableName="pltm_payment_order"-->
+            <!--domainObjectName="PltmPaymentOrder"-->
+            <!--alias="pltmPaymentOrder" >-->
+        <!--</table>-->
+        <!--<table tableName="pltm_account"-->
+               <!--domainObjectName="PltmAccount"-->
+               <!--alias="pltmAccount" >-->
+        <!--</table>-->
+        <!--<table tableName="pltm_trade_detail"-->
+               <!--domainObjectName="PltmTradeDetail"-->
+               <!--alias="pltmTradeDetail" >-->
+        <!--</table>-->
+        <!--<table tableName="pltm_cash"-->
+               <!--domainObjectName="PltmCash"-->
+               <!--alias="pltmCash" >-->
+        <!--</table>-->
+		<table tableName="pltm_seats_modify"
+			   domainObjectName="SeatsModify"
+			   alias="seatsModify" >
+		</table>
+		<!--<table tableName="pltm_notice"-->
+			<!--domainObjectName="PltmNotice"-->
+			<!--alias="pltmNotice" >-->
+		<!--</table>-->
+		<!--<table tableName="pltm_order_flight"-->
+			<!--domainObjectName="PltmOrderFlight"-->
+			<!--alias="pltmOrderFlight" >-->
+		<!--</table>-->
+		<!--<table tableName="pltm_order_passenger"-->
+			   <!--domainObjectName="PltmOrderPassenger"-->
+			   <!--alias="pltmOrderPassenger" >-->
+		<!--</table>-->
+<!-- 		<table tableName="bw30order" -->
+<!-- 			domainObjectName="Bw30Order" -->
+<!-- 			alias="bw30Order" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="bw30orderflight" -->
+<!-- 			domainObjectName="Bw30OrderFlight" -->
+<!-- 			alias="bw30OrderFlight" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="bw30orderpassager" -->
+<!-- 			domainObjectName="Bw30OrderPassager" -->
+<!-- 			alias="bw30OrderPassager" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="Bw30MemberPassenger" -->
+<!-- 			domainObjectName="Bw30MemberPassenger" -->
+<!-- 			alias="bw30MemberPassenger" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="bw30registeruser" -->
+<!-- 			domainObjectName="Bw30RegisterUser" -->
+<!-- 			alias="bw30RegisterUser" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="bw30commoncodedetail" -->
+<!-- 			domainObjectName="Bw30CommonCodeDetail" -->
+<!-- 			alias="bw30CommonCodeDetail" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="Bw30AirLine" -->
+<!-- 			domainObjectName="Bw30AirLine" -->
+<!-- 			alias="bw30AirLine" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="channeltypejar" -->
+<!-- 			domainObjectName="ChannelTypeJar" -->
+<!-- 			alias="channelTypeJar" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="exceptionrecords" -->
+<!-- 			domainObjectName="ExceptionRecords" -->
+<!-- 			alias="exceptionRecords" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="menu" -->
+<!-- 			domainObjectName="Menu" -->
+<!-- 			alias="menu" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="merchant" -->
+<!-- 			domainObjectName="MerChant" -->
+<!-- 			alias="merChant" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="merchantchannel" -->
+<!-- 			domainObjectName="MerChantChannel" -->
+<!-- 			alias="merChantChannel" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="merchantpaychannelproxy" -->
+<!-- 			domainObjectName="MerChantPayChannelProxy" -->
+<!-- 			alias="merChantPayChannelProxy" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="module" -->
+<!-- 			domainObjectName="Module" -->
+<!-- 			alias="module" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="notifyinfo" -->
+<!-- 			domainObjectName="NotifyInfo" -->
+<!-- 			alias="notifyInfo" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="orderform" -->
+<!-- 			domainObjectName="OrderForm" -->
+<!-- 			alias="orderForm" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="paraminfo" -->
+<!-- 			domainObjectName="ParamInfo" -->
+<!-- 			alias="paramInfo" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="paychannel" -->
+<!-- 			domainObjectName="PayChannel" -->
+<!-- 			alias="payChannel" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="paychanneljarfile" -->
+<!-- 			domainObjectName="PayChannelJarFile" -->
+<!-- 			alias="payChannelJarFile" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="paychannelproxy" -->
+<!-- 			domainObjectName="PayChannelProxy" -->
+<!-- 			alias="payChannelProxy" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="paychannelproxyprop" -->
+<!-- 			domainObjectName="PayChannelProxyProp" -->
+<!-- 			alias="payChannelProxyProp" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="paynotifymsg" -->
+<!-- 			domainObjectName="PayNotifyMsg" -->
+<!-- 			alias="payNotifyMsg" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="payuser" -->
+<!-- 			domainObjectName="PayUser" -->
+<!-- 			alias="payUser" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="permission" -->
+<!-- 			domainObjectName="Permission" -->
+<!-- 			alias="permission" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="permissionmenu" -->
+<!-- 			domainObjectName="PermissionMenu" -->
+<!-- 			alias="permissionMenu" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="repeatnotify" -->
+<!-- 			domainObjectName="RepeatNotify" -->
+<!-- 			alias="repeatNotify" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="usermerchant" -->
+<!-- 			domainObjectName="UserMerChant" -->
+<!-- 			alias="userMerChant" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="userpermission" -->
+<!-- 			domainObjectName="UserperMission" -->
+<!-- 			alias="userperMission" > -->
+<!-- 		</table> -->
+<!-- 		<table tableName="systemproperty" -->
+<!-- 			domainObjectName="SystemProperty" -->
+<!-- 			alias="systemProperty" > -->
+<!-- 		</table> -->
+	</context>
+</generatorConfiguration>

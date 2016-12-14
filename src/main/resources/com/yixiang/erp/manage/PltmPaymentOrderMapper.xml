@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yixiang.erp.manage.PltmPaymentOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.yixiang.erp.manage.PltmPaymentOrder" >
+    <id column="pltmPaymentOrder_id" property="id" jdbcType="BIGINT" />
+    <result column="pltmPaymentOrder_order_no" property="orderNo" jdbcType="CHAR" />
+    <result column="pltmPaymentOrder_pay_no" property="payNo" jdbcType="CHAR" />
+    <result column="pltmPaymentOrder_remarks" property="remarks" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.orderNo != null" >
+         and order_no = #{condition.orderNo,jdbcType=CHAR}
+      </if>
+      <if test="condition.payNo != null" >
+         and pay_no = #{condition.payNo,jdbcType=CHAR}
+      </if>
+      <if test="condition.remarks != null" >
+         and remarks = #{condition.remarks,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.orderNo != null" >
+         and order_no = #{example.condition.orderNo,jdbcType=CHAR}
+      </if>
+      <if test="example.condition.payNo != null" >
+         and pay_no = #{example.condition.payNo,jdbcType=CHAR}
+      </if>
+      <if test="example.condition.remarks != null" >
+         and remarks = #{example.condition.remarks,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    pltmPaymentOrder.id as pltmPaymentOrder_id, pltmPaymentOrder.order_no as pltmPaymentOrder_order_no, 
+    pltmPaymentOrder.pay_no as pltmPaymentOrder_pay_no, pltmPaymentOrder.remarks as pltmPaymentOrder_remarks
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yixiang.erp.manage.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pltm_payment_order pltmPaymentOrder
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from pltm_payment_order pltmPaymentOrder
+    where pltmPaymentOrder.id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from pltm_payment_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yixiang.erp.manage.Criteria" >
+    delete from pltm_payment_order pltmPaymentOrder
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yixiang.erp.manage.PltmPaymentOrder" >
+    insert into pltm_payment_order (id, order_no, pay_no, 
+      remarks)
+    values (#{id,jdbcType=BIGINT}, #{orderNo,jdbcType=CHAR}, #{payNo,jdbcType=CHAR}, 
+      #{remarks,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yixiang.erp.manage.PltmPaymentOrder" >
+    insert into pltm_payment_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orderNo != null" >
+        order_no,
+      </if>
+      <if test="payNo != null" >
+        pay_no,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="orderNo != null" >
+        #{orderNo,jdbcType=CHAR},
+      </if>
+      <if test="payNo != null" >
+        #{payNo,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yixiang.erp.manage.Criteria" resultType="java.lang.Integer" >
+    select count(*) from pltm_payment_order pltmPaymentOrder
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update pltm_payment_order pltmPaymentOrder
+    <set >
+      <if test="record.id != null" >
+        pltmPaymentOrder.id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.orderNo != null" >
+        pltmPaymentOrder.order_no = #{record.orderNo,jdbcType=CHAR},
+      </if>
+      <if test="record.payNo != null" >
+        pltmPaymentOrder.pay_no = #{record.payNo,jdbcType=CHAR},
+      </if>
+      <if test="record.remarks != null" >
+        pltmPaymentOrder.remarks = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update pltm_payment_order pltmPaymentOrder
+    set pltmPaymentOrder.id = #{record.id,jdbcType=BIGINT},
+      pltmPaymentOrder.order_no = #{record.orderNo,jdbcType=CHAR},
+      pltmPaymentOrder.pay_no = #{record.payNo,jdbcType=CHAR},
+      pltmPaymentOrder.remarks = #{record.remarks,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yixiang.erp.manage.PltmPaymentOrder" >
+    update pltm_payment_order
+    <set >
+      <if test="orderNo != null" >
+        order_no = #{orderNo,jdbcType=CHAR},
+      </if>
+      <if test="payNo != null" >
+        pay_no = #{payNo,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yixiang.erp.manage.PltmPaymentOrder" >
+    update pltm_payment_order
+    set order_no = #{orderNo,jdbcType=CHAR},
+      pay_no = #{payNo,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
